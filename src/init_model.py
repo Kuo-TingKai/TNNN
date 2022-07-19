@@ -14,6 +14,7 @@ import numpy as np
 # import matplotlib.pyplot as plt
 # import sys
 # import time
+import sys
 
 def init_model(model_arch,num_nodes, bond_dim):
 
@@ -126,24 +127,31 @@ def init_model(model_arch,num_nodes, bond_dim):
         return LeNet5_model
 
     elif model_arch=='tnlenet5': 
-        tn_LeNet5_model = Sequential([
-          Conv2D(6, kernel_size=(5, 5), input_shape=(25, 25, 3), use_bias=False, activation= 'relu' ),
-          MaxPool2D(pool_size=(2, 2)),
-          Conv2D(16, kernel_size=(5, 5), use_bias=False, activation= 'relu' ),
-          MaxPool2D(pool_size=(2, 2), strides=1),
-          #Dropout(0.5),
-          Flatten(),
-          #Dense(120, use_bias=True, activation='relu'),
-          #Dense(84, use_bias=True, activation='relu'),
-          DenseMPO(256, num_nodes=num_nodes,bond_dim=bond_dim, use_bias=False, activation='relu'),  # input 400
-          #DenseDecomp(81, decomp_size=128, use_bias=True, activation='relu'),
-          DenseMPO(81, num_nodes=num_nodes, bond_dim=bond_dim, use_bias=False, activation='relu'),
-          Dense(num_classes,  use_bias=False, activation= 'softmax' )
-        ])
-        #print("tn_LeNet5:")
-        #print(tn_LeNet5_model.summary())
-        return tn_LeNet5_model
+        try:
+            tn_LeNet5_model = Sequential([
+              Conv2D(6, kernel_size=(5, 5), input_shape=(25, 25, 3), use_bias=False, activation= 'relu' ),
+              MaxPool2D(pool_size=(2, 2)),
+              Conv2D(16, kernel_size=(5, 5), use_bias=False, activation= 'relu' ),
+              MaxPool2D(pool_size=(2, 2), strides=1),
+              #Dropout(0.5),
+              Flatten(),
+              #Dense(120, use_bias=True, activation='relu'),
+              #Dense(84, use_bias=True, activation='relu'),
+              DenseMPO(256, num_nodes=num_nodes,bond_dim=bond_dim, use_bias=False, activation='relu'),  # input 400
+              #DenseDecomp(81, decomp_size=128, use_bias=True, activation='relu'),
+              DenseMPO(81, num_nodes=num_nodes, bond_dim=bond_dim, use_bias=False, activation='relu'),
+              Dense(num_classes,  use_bias=False, activation= 'softmax' )
+            ])
+            #print("tn_LeNet5:")
+            #print(tn_LeNet5_model.summary())
+            return tn_LeNet5_model
 
+        except AssertionError as e:
+            print("="*100)
+            print("Input dim incorrect. ---> input_dim**(1. / num_nodes) must be round.")
+            print("Please choose proper input dimension and number of nodes again.")
+            print("="*100)
+            sys.exit()
     elif model_arch=='vgg16':
         VGG16_model = Sequential([
           Conv2D(64, kernel_size=(3, 3), input_shape=(25, 25, 3), padding='same', use_bias=False, activation= 'relu'),

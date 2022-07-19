@@ -53,7 +53,7 @@ print("loaded")
 # #print(model.summary())
 
 
-model = init_model(model_arch)
+model = init_model(model_arch,num_nodes,bond_dim)
 
 model.compile(optimizer='adam', 
               loss='categorical_crossentropy', 

@@ -20,14 +20,18 @@
             - save_load_model.py
             - timestamp.py
         - model.py (to be divided by multiple parts)
-        - mpo.py
+        - ~~mpo.py~~ main.py
+        - init_model.py
         - resize.py (to be move to util)
         - save_dataset.y (to be move to util)
 
 # Instruction
 - Run model silently: 
 ```bash
-nohup python3 ./src/{model}.py model_architecture nepoch bond_dim nnode dataset &
+# (depreciated)
+#nohup python3 ./src/{model}.py model_architecture nepoch bond_dim nnode dataset &
+# Should type:
+nohup python3 ./src/main.py model_architecture nepoch bond_dim nnode dataset &
 ```
 
 # Some tips
@@ -37,5 +41,6 @@ nohup python3 ./src/{model}.py model_architecture nepoch bond_dim nnode dataset 
 - hdf5 viewer
 
 # TODO
-
+- dimension check (write warning message and exit)
+    - 2022/07/19: partially done (see tnlenet5)
 - md2pdf cannot convert latex
