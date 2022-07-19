@@ -39,6 +39,12 @@ nohup python3 ./src/main.py model_architecture nepoch bond_dim nnode dataset &
 - Using `tmux` in wsl-2 can divided window into multiple panes
 - pdfcrop --margin 5  {source}.pdf {output}.pdf
 - hdf5 viewer
+- git 
+    - git status
+    - git log
+    - git add .
+    - git commit -m "message"
+
 
 # TODO
 - dimension check (write warning message and exit)

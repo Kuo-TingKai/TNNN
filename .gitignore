@@ -1,6 +1,8 @@
-data/mnist/
-history/history_npy/
-history/mpo/
-img/
-model_weight/mpo
-src/relic/
+/data/mnist/
+/history/history_npy/
+/history/mpo/
+/img/
+/model_weight/mpo
+/src/relic/
+
+*.npy
