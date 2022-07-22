@@ -2,7 +2,8 @@
 /data/mnist/resize/*.npy
 /history/history_npy/*.npy
 /history/mpo/*
-/img/
+/img/*.pdf
+/img/history_pdf/*.pdf
 /model_weight/mpo
 /src/relic/
 *.h5
