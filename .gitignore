@@ -5,4 +5,5 @@
 /img/
 /model_weight/mpo
 /src/relic/
-
+*.h5
+*.npy
