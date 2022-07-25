@@ -1,9 +1,15 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
+# INFO not be printed
 import tensornetwork as tn
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D
 from tensornetwork.tn_keras.layers import DenseMPO,  DenseDecomp, Conv2DMPO
 import numpy as np
+# import tensorflow.compat.v1 as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
 # import matplotlib.pyplot as plt
 # import sys
 # import time
