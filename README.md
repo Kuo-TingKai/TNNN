@@ -1,6 +1,7 @@
+# TNNN
 ![](./img/TNNN.jpg)
 
-# Folder Tree (Current)
+## Folder Tree (Current)
 - TNML_2022
     - data
     - history
@@ -27,7 +28,7 @@
         - resize.py (to be move to util)
         - save_dataset.y (to be move to util)
 
-# Instruction
+## Instruction
 - Run model silently: 
 ```bash
 # (depreciated)
@@ -36,7 +37,7 @@
 nohup python3 ./src/main.py model_architecture nepoch bond_dim nnode dataset &
 ```
 
-# Some tips
+## Some tips
 
 - Using `tmux` in wsl-2 can divided window into multiple panes
 - pdfcrop --margin 5  {source}.pdf {output}.pdf
@@ -48,7 +49,12 @@ nohup python3 ./src/main.py model_architecture nepoch bond_dim nnode dataset &
     - git commit -m "message"
 
 
-# TODO
+## TODO
 - dimension check (write warning message and exit)
     - 2022/07/19: partially done (see tnlenet5)
 - md2pdf cannot convert latex
+
+## DONE
+
+:ballot_box_with_check:Suppress Numa Node INFO (2022/07/25)
+
